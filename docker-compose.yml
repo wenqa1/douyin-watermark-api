@@ -1,1 +1,12 @@
+version: "3.8"
 
+services:
+  fastapi:
+    build:
+      context: .
+    image: douyin-watermark-api
+    ports:
+      - "8000:80"
+    volumes:
+      - .:/app
+    command: uvicorn app:app --host 0.0.0.0 --port 80 --reload
