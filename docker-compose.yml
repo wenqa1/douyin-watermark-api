@@ -1,12 +1,11 @@
-version: "3.8"
+version: "3.9"  # 如果需要消除警告，可以升级到更高版本（如 3.9）
 
 services:
   fastapi:
     build:
-      context: .
-    image: douyin-watermark-api
+      context: .  # 构建上下文路径
     ports:
-      - "8000:80"
+      - "8000:8000"  # 端口映射
     volumes:
-      - .:/app
-    command: uvicorn app:app --host 0.0.0.0 --port 80 --reload
+      - .:/app  # 挂载当前目录到容器的 /app
+    command: uvicorn app:app --host 0.0.0.0 --port 8000 --reload  # 启动命令
